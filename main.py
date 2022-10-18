@@ -6,12 +6,13 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.common.action_chains import ActionChains
 import time
+import os
 
 def get_name_by_id(id: str):
 
         chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument(
-            "--user-data-dir=" + os.path.expanduser("~") + "\\AppData\\Local\\Google\\Chrome\\User Data")
+        # chrome_options.add_argument(
+        #     "--user-data-dir=" + os.path.expanduser("~") + "\\AppData\\Local\\Google\\Chrome\\User Data")
         chromedriver = "./chromedriver"
         driver = webdriver.Chrome(executable_path=chromedriver,
                                 chrome_options=chrome_options)
