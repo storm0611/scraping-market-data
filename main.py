@@ -34,8 +34,8 @@ def get_name_by_id(id: str):
         time.sleep(1)
         action.send_keys(Keys.ENTER).perform()
 
-        name_element = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#ContentPlaceHolder1_TrainingRegisterUC_lblName")))
-        return name_element.text
+        name_element = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#ContentPlaceHolder1_TrainingRegisterUC_lblName"))).encode("utf-8")
+        return str(name_element.text)
 
 if __name__ == "__main__":
     print("id = {0} => name = {1}".format("301092401424", get_name_by_id("301092401424")))
