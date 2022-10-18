@@ -13,10 +13,10 @@ def get_name_by_id(id: str):
         # chrome_options = webdriver.ChromeOptions()
         # chrome_options.add_argument(
         #     "--user-data-dir=" + os.path.expanduser("~") + "\\AppData\\Local\\Google\\Chrome\\User Data")
-        chromedriver = "./chromedriver"
+        # chromedriver = "./chromedriver"
         # driver = webdriver.Chrome(executable_path=chromedriver,
         #                         chrome_options=chrome_options)
-        driver = webdriver.Chrome(executable_path=chromedriver)
+        driver = webdriver.Chrome()
         driver.execute_script("window.open('');")
         driver.switch_to.window(driver.window_handles[-1])
         
