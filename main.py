@@ -16,7 +16,10 @@ def get_name_by_id(id: str):
         # chromedriver = "./chromedriver"
         # driver = webdriver.Chrome(executable_path=chromedriver,
         #                         chrome_options=chrome_options)
-        driver = webdriver.Chrome()
+        try:
+            driver = webdriver.Chrome()
+        except:
+            os.system("taskkill /im chrome.exe /f")
         driver.execute_script("window.open('');")
         driver.switch_to.window(driver.window_handles[-1])
         
