@@ -50,6 +50,7 @@ if __name__ == "__main__":
     list_name = []
     for id in df['ID']:
         name = get_name_by_id(str(id))
+        time.sleep(3)
         list_id.append(str(id))
         list_name.append(str(name))
     df = DataFrame(list(zip(list_id, list_name)), columns=['ID', 'NAME'])
