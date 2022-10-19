@@ -35,13 +35,15 @@ def get_name_by_id(id: str):
         action.send_keys(Keys.ENTER).perform()
 
         name_element = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#ContentPlaceHolder1_TrainingRegisterUC_lblName")))
-        name = str(name_element.text.encode("unicode"))
+        print(type(name_element.text))
+        name = name_element.text.encode('utf-8')
+        print(type(name))
         driver.close()
         driver.quit()
         return name
 
 if __name__ == "__main__":
-    file = open("output.txt", "w", encoding="unicode")
+    file = open("output.txt", "w", encoding="utf8")
     name = get_name_by_id("301092401424")
     file.write(name)
     print("id = {0} => name = {1}".format("301092401424", name))
