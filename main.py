@@ -43,6 +43,6 @@ def get_name_by_id(id: str):
 if __name__ == "__main__":
     file = open("output.txt", "w", encoding="utf8")
     name = get_name_by_id("301092401424")
-    file.write("id = {0} => name = ".format("301092401424"), name)
+    file.write("id = {0} => name = ".format("301092401424") + name)
     print("id = {0} => name = ".format("301092401424"), name)
     file.close()
