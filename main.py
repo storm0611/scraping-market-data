@@ -7,6 +7,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 import time
 import os
+import pandas as pd
+from pandas import DataFrame
+
 
 def get_name_by_id(id: str):
 
@@ -40,9 +43,14 @@ def get_name_by_id(id: str):
         driver.quit()
         return name
 
+
 if __name__ == "__main__":
-    file = open("output.txt", "w", encoding="utf8")
-    name = get_name_by_id("301092401424")
-    file.write("id = {0} => name = ".format("301092401424") + name)
-    # print("id = {0} => name = ".format("301092401424"), str(name))
-    file.close()
+    df = pd.read_excel("id.xlsx", sheet_name="Sheet1")
+    list_id = []
+    list_name = []
+    for id in df['ID']:
+        name = get_name_by_id(str(id))
+        list_id.append(str(id))
+        list_name.append(str(name))
+    df = DataFrame(list(zip(list_id, list_name)), columns=['ID', 'NAME'])
+    df.to_excel("name.xlsx", sheet_name='Sheet1')
