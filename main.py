@@ -35,9 +35,7 @@ def get_name_by_id(id: str):
         action.send_keys(Keys.ENTER).perform()
 
         name_element = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#ContentPlaceHolder1_TrainingRegisterUC_lblName")))
-        print(type(name_element.text))
-        name = name_element.text.encode('utf-8')
-        print(type(name))
+        name = name_element.text
         driver.close()
         driver.quit()
         return name
