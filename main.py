@@ -31,12 +31,14 @@ def get_name_by_id(id: str):
             id_element = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#ContentPlaceHolder1_TrainingRegisterUC_txtCivilID")))
             action = ActionChains(driver) 
             action.move_to_element(id_element).click().perform()
+            print("id = ", id)
             id_element.send_keys(id)
             time.sleep(1)
             action.send_keys(Keys.ENTER).perform()
 
             name_element = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#ContentPlaceHolder1_TrainingRegisterUC_lblName")))
             name = name_element.text
+            print("name = ", name)
             driver.close()
             driver.quit()
             return name
