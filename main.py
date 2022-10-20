@@ -54,13 +54,14 @@ if __name__ == "__main__":
     while id < len(df):
         name = get_name_by_id(str(df.at[id, 'ID']))
         if 'repeat' in name:
-            print("error in chrome driver")
+            print("{0} : error in chrome driver!".format(id + 1))
         else:
             time.sleep(3)
             list_id.append(str(df.at[id, 'ID']))
             list_name.append(str(name))
             df1 = DataFrame(list(zip(list_id, list_name)), columns=['ID', 'NAME'])
             df1.to_excel("name.xlsx", sheet_name='Sheet1')
+            print("{0} : success!".format(id + 1))
         id += 1
     # df = DataFrame(list(zip(list_id, list_name)), columns=['ID', 'NAME'])
     # df.to_excel("name.xlsx", sheet_name='Sheet1')
