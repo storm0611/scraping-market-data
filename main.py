@@ -59,8 +59,8 @@ if __name__ == "__main__":
             time.sleep(3)
             list_id.append(str(df.at[id, 'ID']))
             list_name.append(str(name))
-            df = DataFrame(list(zip(list_id, list_name)), columns=['ID', 'NAME'])
-            df.to_excel("name.xlsx", sheet_name='Sheet1')
+            df1 = DataFrame(list(zip(list_id, list_name)), columns=['ID', 'NAME'])
+            df1.to_excel("name.xlsx", sheet_name='Sheet1')
         id += 1
     # df = DataFrame(list(zip(list_id, list_name)), columns=['ID', 'NAME'])
     # df.to_excel("name.xlsx", sheet_name='Sheet1')
