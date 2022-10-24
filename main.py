@@ -76,12 +76,13 @@ if __name__ == "__main__":
     # id = 102297023
     # print("name = ", get_name_by_id(id, url))
 
-    df = pd.read_excel("id.xlsx", sheet_name="Sheet1")
+    df = pd.read_excel("9id.xlsx", sheet_name="Sheet1")
     list_id = []
     list_name = []
     id = 0
     while id < len(df):
         name = get_name_by_id(str(df.at[id, 'ID']), url)
+        print(name)
         if 'repeat' in name:
             print("{0} : error in chrome driver!".format(id + 1))
         else:
